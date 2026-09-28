@@ -4,7 +4,7 @@ import { generateTokens, readRefreshToken } from "../utils/auth.utils.js";
 
 export const register = async (req, res) => {
   try {
-    const { email, name, password, role  = "user" } = req.body;
+    const { email, name, password, role = "user" } = req.body;
 
     const isUserAlreadyExists = await userModel.findOne({ email });
 
@@ -25,7 +25,7 @@ export const register = async (req, res) => {
       email,
       name,
       passwordHash: hashedPassword,
-      role: ["user","seller"].includes(role) ? role : "user"
+      role: ["user", "seller"].includes(role) ? role : "user",
     });
 
     return res.status(201).json({
@@ -36,7 +36,7 @@ export const register = async (req, res) => {
           id: user._id,
           email: user.email,
           name: user.name,
-          role: user.role
+          role: user.role,
         },
       },
     });
@@ -83,7 +83,11 @@ export const login = async (req, res) => {
       refreshToken,
     });
 
-    res.cookie("refreshToken", refreshToken, { httpOnly: true });
+    res.cookie("refreshToken", refreshToken, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+    });
 
     return res.status(200).json({
       success: "true",
@@ -93,7 +97,7 @@ export const login = async (req, res) => {
           id: user._id,
           email: user.email,
           name: user.name,
-          role: user.role
+          role: user.role,
         },
       },
       accessToken,
@@ -124,7 +128,7 @@ export const getMe = async (req, res) => {
           id: user._id,
           email: user.email,
           name: user.name,
-          role: user.role
+          role: user.role,
         },
       },
     });
@@ -181,6 +185,8 @@ export const refresh = async (req, res) => {
     });
     res.cookie("refreshToken", newRefreshToken, {
       httpOnly: true,
+      secure: true,
+      sameSite: "none",
     });
 
     return res.status(201).json({
@@ -191,7 +197,7 @@ export const refresh = async (req, res) => {
           id: user._id,
           email: user.email,
           name: user.name,
-          role: user.role
+          role: user.role,
         },
       },
       accessToken,
@@ -213,10 +219,14 @@ export const logout = async (req, res) => {
     const { userId } = req.user;
 
     const user = await userModel.findByIdAndUpdate(userId, {
-      refreshToken: null
+      refreshToken: null,
     });
 
-    res.clearCookie("refreshToken", { httpOnly: true });
+    res.clearCookie("refreshToken", {
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
+    });
 
     return res.status(200).json({
       success: true,
@@ -226,14 +236,12 @@ export const logout = async (req, res) => {
           id: user._id,
           email: user.email,
           name: user.name,
-          role: user.role
-        }
-      }
-    })
-
-
+          role: user.role,
+        },
+      },
+    });
   } catch (error) {
-     return res.status(500).json({
+    return res.status(500).json({
       success: false,
       message: "Invalid Request",
       errors: {
@@ -242,4 +250,4 @@ export const logout = async (req, res) => {
       },
     });
   }
-}
+};
