@@ -55,15 +55,15 @@ export const RegisterForm = () => {
 
       {/* Role Selector */}
       <div>
-        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-2">
+        <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-2">
           Account Type
         </label>
         <div className="grid grid-cols-2 gap-3">
           <label
             className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition ${
               selectedRole === "user"
-                ? "border-purple-600 bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 ring-2 ring-purple-600/20"
-                : "border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300"
+                ? "border-purple-600 bg-purple-50 text-purple-700 ring-2 ring-purple-600/20"
+                : "border-slate-200 hover:bg-slate-50 text-slate-700"
             }`}
           >
             <input
@@ -82,8 +82,8 @@ export const RegisterForm = () => {
           <label
             className={`flex items-center gap-3 p-3 rounded-xl border cursor-pointer transition ${
               selectedRole === "seller"
-                ? "border-purple-600 bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 ring-2 ring-purple-600/20"
-                : "border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-300"
+                ? "border-purple-600 bg-purple-50 text-purple-700 ring-2 ring-purple-600/20"
+                : "border-slate-200 hover:bg-slate-50 text-slate-700"
             }`}
           >
             <input
@@ -103,7 +103,7 @@ export const RegisterForm = () => {
 
       {/* Name */}
       <div>
-        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
+        <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
           Full Name
         </label>
         <div className="relative">
@@ -124,10 +124,10 @@ export const RegisterForm = () => {
                 message: "Name must be less than 50 characters",
               },
             })}
-            className={`w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border text-sm outline-none transition ${
+            className={`w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-slate-50 border text-slate-900 text-sm outline-none transition ${
               errors.name
                 ? "border-rose-500 focus:ring-2 focus:ring-rose-500/20"
-                : "border-slate-200 dark:border-slate-800 focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20"
+                : "border-slate-200 focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20"
             }`}
           />
         </div>
@@ -136,7 +136,7 @@ export const RegisterForm = () => {
 
       {/* Email */}
       <div>
-        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
+        <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
           Email Address
         </label>
         <div className="relative">
@@ -153,10 +153,10 @@ export const RegisterForm = () => {
                 message: "Please enter a valid email address",
               },
             })}
-            className={`w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border text-sm outline-none transition ${
+            className={`w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-slate-50 border text-slate-900 text-sm outline-none transition ${
               errors.email
                 ? "border-rose-500 focus:ring-2 focus:ring-rose-500/20"
-                : "border-slate-200 dark:border-slate-800 focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20"
+                : "border-slate-200 focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20"
             }`}
           />
         </div>
@@ -165,7 +165,7 @@ export const RegisterForm = () => {
 
       {/* Password */}
       <div>
-        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
+        <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
           Password
         </label>
         <div className="relative">
@@ -187,10 +187,10 @@ export const RegisterForm = () => {
                   "Password must contain uppercase, lowercase, number, and special character",
               },
             })}
-            className={`w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border text-sm outline-none transition ${
+            className={`w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-slate-50 border text-slate-900 text-sm outline-none transition ${
               errors.password
                 ? "border-rose-500 focus:ring-2 focus:ring-rose-500/20"
-                : "border-slate-200 dark:border-slate-800 focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20"
+                : "border-slate-200 focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20"
             }`}
           />
         </div>
@@ -199,7 +199,7 @@ export const RegisterForm = () => {
 
       {/* Confirm Password */}
       <div>
-        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
+        <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
           Confirm Password
         </label>
         <div className="relative">
@@ -213,10 +213,10 @@ export const RegisterForm = () => {
               required: "Please confirm your password",
               validate: (val) => val === passwordValue || "Passwords do not match",
             })}
-            className={`w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border text-sm outline-none transition ${
+            className={`w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-slate-50 border text-slate-900 text-sm outline-none transition ${
               errors.confirmPassword
                 ? "border-rose-500 focus:ring-2 focus:ring-rose-500/20"
-                : "border-slate-200 dark:border-slate-800 focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20"
+                : "border-slate-200 focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20"
             }`}
           />
         </div>
@@ -226,7 +226,7 @@ export const RegisterForm = () => {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full mt-3 py-3 rounded-xl bg-linear-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold text-sm shadow-md shadow-purple-600/25 flex items-center justify-center gap-2 transition disabled:opacity-60 cursor-pointer"
+        className="w-full mt-3 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold text-sm shadow-md shadow-purple-600/25 flex items-center justify-center gap-2 transition disabled:opacity-60 cursor-pointer"
       >
         {isSubmitting ? (
           <>

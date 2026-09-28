@@ -57,7 +57,7 @@ export const LoginForm = () => {
 
       {/* Email */}
       <div>
-        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
+        <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
           Email Address
         </label>
         <div className="relative">
@@ -74,10 +74,10 @@ export const LoginForm = () => {
                 message: "Please enter a valid email address",
               },
             })}
-            className={`w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border text-sm outline-none transition ${
+            className={`w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-slate-50 border text-slate-900 text-sm outline-none transition ${
               errors.email
                 ? "border-rose-500 focus:ring-2 focus:ring-rose-500/20"
-                : "border-slate-200 dark:border-slate-800 focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20"
+                : "border-slate-200 focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20"
             }`}
           />
         </div>
@@ -86,7 +86,7 @@ export const LoginForm = () => {
 
       {/* Password */}
       <div>
-        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
+        <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
           Password
         </label>
         <div className="relative">
@@ -103,10 +103,10 @@ export const LoginForm = () => {
                 message: "Password must be at least 6 characters",
               },
             })}
-            className={`w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900 border text-sm outline-none transition ${
+            className={`w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-slate-50 border text-slate-900 text-sm outline-none transition ${
               errors.password
                 ? "border-rose-500 focus:ring-2 focus:ring-rose-500/20"
-                : "border-slate-200 dark:border-slate-800 focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20"
+                : "border-slate-200 focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20"
             }`}
           />
         </div>
@@ -116,7 +116,7 @@ export const LoginForm = () => {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full mt-2 py-3 rounded-xl bg-linear-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold text-sm shadow-md shadow-purple-600/25 flex items-center justify-center gap-2 transition disabled:opacity-60 cursor-pointer"
+        className="w-full mt-2 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-semibold text-sm shadow-md shadow-purple-600/25 flex items-center justify-center gap-2 transition disabled:opacity-60 cursor-pointer"
       >
         {isSubmitting ? (
           <>
