@@ -1,0 +1,14 @@
+import dotenv from "dotenv";
+dotenv.config();
+
+const config = {
+  PORT: process.env.PORT,
+  MONGO_URI: process.env.MONGO_URI,
+  ACCESS_JWT_SECRET: process.env.ACCESS_JWT_SECRET,
+  REFRESH_JWT_SECRET: process.env.REFRESH_JWT_SECRET,
+  IMAGEKIT_PUBLIC_KEY: process.env.IMAGEKIT_PUBLIC_KEY,
+  IMAGEKIT_PRIVATE_KEY: process.env.IMAGEKIT_PRIVATE_KEY,
+  CLIENT_URL: process.env.CLIENT_URL
+};
+
+export default config;
