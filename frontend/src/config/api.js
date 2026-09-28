@@ -10,7 +10,7 @@ export const setAuthToken = (token) => {
 export const getAuthToken = () => inMemoryToken;
 
 const api = axios.create({
-  baseURL: "/api",
+  baseURL: import.meta.env.VITE_SERVER_URL,
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
@@ -25,7 +25,7 @@ api.interceptors.request.use(
     }
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => Promise.reject(error),
 );
 
 // Response interceptor: handle 401 and attempt silent refresh
@@ -40,13 +40,21 @@ api.interceptors.response.use(
       originalRequest.url?.includes("/auth/register") ||
       originalRequest.url?.includes("/auth/refresh-token");
 
-    if (error.response?.status === 401 && !originalRequest._retry && !isAuthEndpoint) {
+    if (
+      error.response?.status === 401 &&
+      !originalRequest._retry &&
+      !isAuthEndpoint
+    ) {
       originalRequest._retry = true;
 
       try {
         if (!refreshPromise) {
           refreshPromise = axios
-            .post("/api/auth/refresh-token", {}, { withCredentials: true })
+            .post(
+              `${import.meta.env.VITE_SERVER_URL}/auth/refresh-token`,
+              {},
+              { withCredentials: true },
+            )
             .then((res) => {
               const newToken = res.data?.accessToken;
               setAuthToken(newToken);
@@ -69,7 +77,7 @@ api.interceptors.response.use(
     }
 
     return Promise.reject(error);
-  }
+  },
 );
 
 export default api;
