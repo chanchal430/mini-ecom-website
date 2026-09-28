@@ -86,7 +86,7 @@ export const login = async (req, res) => {
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       secure: true,
-      sameSite: "none",
+      sameSite: "lax",
     });
 
     return res.status(200).json({
@@ -103,6 +103,7 @@ export const login = async (req, res) => {
       accessToken,
     });
   } catch (error) {
+
     return res.status(500).json({
       success: false,
       message: "Error in Login Controller",
@@ -186,7 +187,7 @@ export const refresh = async (req, res) => {
     res.cookie("refreshToken", newRefreshToken, {
       httpOnly: true,
       secure: true,
-      sameSite: "none",
+      sameSite: "lax",
     });
 
     return res.status(201).json({
@@ -203,6 +204,7 @@ export const refresh = async (req, res) => {
       accessToken,
     });
   } catch (error) {
+    console.log("REFRESH ERROR:", error);
     return res.status(401).json({
       success: false,
       message: "Invalid Refresh Token",
@@ -225,7 +227,7 @@ export const logout = async (req, res) => {
     res.clearCookie("refreshToken", {
       httpOnly: true,
       secure: true,
-      sameSite: "none",
+      sameSite: "lax",
     });
 
     return res.status(200).json({
