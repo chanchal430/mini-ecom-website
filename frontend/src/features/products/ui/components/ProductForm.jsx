@@ -344,7 +344,7 @@ export const ProductForm = ({ initialData = null, onSubmit, isSubmitting = false
         )}
 
         {/* File Input */}
-        <label className="border-2 border-dashed border-slate-800 hover:border-purple-600 rounded-2xl p-6 flex flex-col items-center justify-center text-center cursor-pointer transition bg-slate-900">
+        <label className="relative border-2 border-dashed border-slate-800 hover:border-purple-600 rounded-2xl p-6 flex flex-col items-center justify-center text-center cursor-pointer transition bg-slate-900">
           <Upload className="w-7 h-7 text-purple-400 mb-2" />
           <span className="text-xs font-semibold text-slate-200">
             Click to upload new photos

@@ -33,7 +33,7 @@ export const Sidebar = () => {
   ];
 
   return (
-    <aside className="w-64 shrink-0 min-h-screen bg-slate-900 text-slate-100 border-r border-slate-800 flex flex-col justify-between p-4 sticky top-0 h-screen">
+    <aside className="w-64 shrink-0 bg-slate-900 text-slate-100 border-r border-slate-800 flex flex-col justify-between p-4  h-screen overflow-hidden">
       {/* Top Header */}
       <div>
         <div className="flex items-center gap-2.5 px-3 py-4 mb-6 border-b border-slate-800">
